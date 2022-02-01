@@ -1,12 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 
 const SearchBar = () => {
+  const [formData, setFormData] = useState({
+    template: "",
+    category: "all",
+    order: "default",
+    date: "default",
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   return (
     <div className="flex-col md:space-y-0 space-y-8 flex md:flex-row justify-between items-center">
       <div className="h-[45px] border rounded-sm px-2 w-full md:w-[319px] flex items-center">
         <input
+          onChange={handleChange}
           className="outline-none px-2 w-full placeholder:text-xs"
           type="text"
+          value={formData.template}
           name="template"
           id="template"
           placeholder="Search Templates"
@@ -36,6 +52,8 @@ const SearchBar = () => {
             <select
               className="w-full md:w-32 outline-none"
               name="category"
+              value={formData.category}
+              onChange={handleChange}
               id="category"
             >
               <option value="all">All</option>
@@ -50,6 +68,8 @@ const SearchBar = () => {
             <select
               className="w-full md:w-32  outline-none"
               name="order"
+              value={formData.order}
+              onChange={handleChange}
               id="order"
             >
               <option value="default">Default</option>
@@ -63,6 +83,8 @@ const SearchBar = () => {
             <select
               className="w-full md:w-32  outline-none"
               name="date"
+              value={formData.date}
+              onChange={handleChange}
               id="date"
             >
               <option value="default">Default</option>
