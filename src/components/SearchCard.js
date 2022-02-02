@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 const SearchCard = () => {
   return (
@@ -14,7 +13,7 @@ const SearchCard = () => {
         </p>
       </div>
       <span className="text-[#08BD37] absolute bottom-0 w-full px-2 flex items-center bg-[#F9F9F9] h-10 cursor-pointer">
-        <Link to="/templates">Use Template</Link>
+        <a href="https://formpl.us/templates">Use Template</a>
       </span>
     </div>
   );
