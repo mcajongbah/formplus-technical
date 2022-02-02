@@ -6,7 +6,7 @@ import Toast from "../components/Toast";
 
 const SearchResultsPage = () => {
   return (
-    <div className="md:max-w-[1030px] my-20 px-5 sm:px-6 lg:px-0 overflow-x-hidden md:mx-auto">
+    <div className="md:max-w-[1030px] lg:max-w-[1150px] my-20 px-5 sm:px-6 lg:px-10 overflow-x-hidden md:mx-auto">
       <SearchBar />
       <Toast />
       <LoadingLayout />

@@ -6,11 +6,8 @@ const PulseLoader = () => {
       <div className="space-y-4 animate-pulse w-full">
         <div className="space-y-1">
           <div className="h-6 w-full bg-slate-200 rounded-sm"></div>
-          <div className="h-6 w-32 bg-slate-200 rounded-sm"></div>
         </div>
         <div className="flex w-full space-y-2 flex-col">
-          <div className="h-2 w-full bg-slate-200 rounded"></div>
-          <div className="h-2 w-full bg-slate-200 rounded"></div>
           <div className="h-2 w-full bg-slate-200 rounded"></div>
           <div className="h-2 w-20 bg-slate-200 rounded"></div>
         </div>
