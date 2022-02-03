@@ -11,11 +11,13 @@ const SearchResultsPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchResults, setSearchResults] = useState([]);
   const [numberOfPages, setNumberOfPages] = useState(null);
+  const [category, setCategory] = useState("All");
 
   const { data, error, loading } = useFetch(
     `https://front-end-task-dot-result-analytics-dot-fpls-dev.uc.r.appspot.com/api/v1/public/task_templates`
   );
 
+  
   useEffect(() => {
     const numberPerPage = 30;
     const indexOfLastItem = currentPage * numberPerPage;
@@ -46,7 +48,7 @@ const SearchResultsPage = () => {
 
   return (
     <div className="md:max-w-[1030px] lg:max-w-[1150px] my-20 px-5 sm:px-6 lg:px-10 overflow-x-hidden md:mx-auto">
-      <SearchBar />
+      <SearchBar setCategory={setCategory} />
       <Toast />
       {loading && <LoadingLayout />}
       {error && (
@@ -54,7 +56,7 @@ const SearchResultsPage = () => {
       )}
       {!loading && !error && data && (
         <>
-          <ResultsLayout data={data}>
+          <ResultsLayout data={data} category={category} >
             {searchResults.map((item) => (
               <SearchCard key={item.created} item={item} />
             ))}

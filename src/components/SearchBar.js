@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const SearchBar = () => {
+const SearchBar = ({ setCategory }) => {
   const [formData, setFormData] = useState({
     template: "",
     category: "all",
@@ -8,7 +8,10 @@ const SearchBar = () => {
     date: "default",
   });
 
+  
+
   const handleChange = (e) => {
+    setCategory(e.target.name === 'category' ? e.target.value : formData.category);
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
